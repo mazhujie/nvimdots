@@ -1,5 +1,5 @@
 {
-  description = "Provide nixosModules for ayamir/nvimdots";
+  description = "Provide nixosModules for mazhujie/nvimdots";
 
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";

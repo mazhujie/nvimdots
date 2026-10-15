@@ -25,7 +25,7 @@ in
     programs.neovim = {
       nvimdots = {
         enable = mkEnableOption ''
-          Activate "ayamir/nvimdots".
+          Activate "mazhujie/nvimdots".
           Have a look at https://github.com/ayamir/nvimdots for details
         '';
         bindLazyLock = mkEnableOption ''

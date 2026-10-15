@@ -23,6 +23,10 @@
     </a>
 </h1>
 
+> **Note:** This is a personal fork of [ayamir/nvimdots](https://github.com/ayamir/nvimdots).
+> The documentation, wiki links, badges and screenshots below intentionally keep pointing to the
+> upstream project, since a fork has no wiki / releases / image repository of its own.
+
 <p align="center">
     <a href="https://github.com/ayamir/nvimdots/stargazers">
     <img
@@ -83,16 +87,16 @@ Simply run the following interactive bootstrap command, and you should be all se
 - **Windows** _(Note: This script REQUIRES `pwsh` > `v7.1`)_
 
 ```pwsh
-Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/ayamir/nvimdots/HEAD/scripts/install.ps1'))
+Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mazhujie/nvimdots/HEAD/scripts/install.ps1'))
 ```
 
 - **\*nix**
 
 ```sh
 if command -v curl >/dev/null 2>&1; then
-    bash -c "$(curl -fsSL https://raw.githubusercontent.com/ayamir/nvimdots/HEAD/scripts/install.sh)"
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/mazhujie/nvimdots/HEAD/scripts/install.sh)"
 else
-    bash -c "$(wget -O- https://raw.githubusercontent.com/ayamir/nvimdots/HEAD/scripts/install.sh)"
+    bash -c "$(wget -O- https://raw.githubusercontent.com/mazhujie/nvimdots/HEAD/scripts/install.sh)"
 fi
 ```
 
