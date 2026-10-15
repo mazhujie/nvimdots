@@ -5,8 +5,8 @@ local helpers = require("keymap.helpers")
 
 local mappings = {
 	fmt = {
-		["n|<A-f>"] = map_cr("FormatToggle"):with_noremap():with_silent():with_desc("formatter: Toggle format on save"),
-		["n|<A-S-f>"] = map_cr("Format"):with_noremap():with_silent():with_desc("formatter: Format buffer manually"),
+		["n|<A-f>"] = map_cr("FormatToggle"):with_noremap():with_silent():with_desc("格式化：开启／关闭保存时格式化"),
+		["n|<A-S-f>"] = map_cr("Format"):with_noremap():with_silent():with_desc("格式化：格式化当前文件"),
 	},
 }
 bind.nvim_load_mapping(mappings.fmt)
@@ -20,86 +20,86 @@ local M = {}
 function M.lsp(buf)
 	local map = {
 		-- LSP-related keymaps, ONLY effective in buffers with LSP(s) attached
-		["n|<leader>li"] = map_cr("LspInfo"):with_silent():with_buffer(buf):with_desc("lsp: Info"),
-		["n|<leader>lr"] = map_cr("LspRestart"):with_silent():with_buffer(buf):with_nowait():with_desc("lsp: Restart"),
+		["n|<leader>li"] = map_cr("LspInfo"):with_silent():with_buffer(buf):with_desc("代码：查看语言服务信息"),
+		["n|<leader>lr"] = map_cr("LspRestart"):with_silent():with_buffer(buf):with_nowait():with_desc("代码：重启语言服务"),
 		["n|go"] = map_cr("Trouble symbols toggle win.position=right")
 			:with_silent()
 			:with_buffer(buf)
-			:with_desc("lsp: Toggle outline"),
+			:with_desc("代码：显示／隐藏符号大纲"),
 		["n|gto"] = map_callback(function()
 				helpers.picker("lsp_document_symbols")
 			end)
 			:with_silent()
 			:with_buffer(buf)
-			:with_desc("lsp: Toggle outline in Telescope"),
+			:with_desc("代码：搜索当前文件符号"),
 		["n|g["] = map_cr("Lspsaga diagnostic_jump_prev")
 			:with_silent()
 			:with_buffer(buf)
-			:with_desc("lsp: Prev diagnostic"),
+			:with_desc("代码：上一个诊断"),
 		["n|g]"] = map_cr("Lspsaga diagnostic_jump_next")
 			:with_silent()
 			:with_buffer(buf)
-			:with_desc("lsp: Next diagnostic"),
+			:with_desc("代码：下一个诊断"),
 		["n|<leader>lx"] = map_cr("Lspsaga show_line_diagnostics ++unfocus")
 			:with_silent()
 			:with_buffer(buf)
-			:with_desc("lsp: Line diagnostic"),
+			:with_desc("代码：查看当前行诊断"),
 		["n|gs"] = map_callback(function()
 			vim.lsp.buf.signature_help()
-		end):with_desc("lsp: Signature help"),
+		end):with_desc("代码：查看函数参数提示"),
 		["n|gr"] = map_cr("Lspsaga rename")
 			:with_silent()
 			:with_nowait()
 			:with_buffer(buf)
-			:with_desc("lsp: Rename in file range"),
+			:with_desc("代码：在当前文件中重命名"),
 		["n|gR"] = map_cr("Lspsaga rename ++project")
 			:with_silent()
 			:with_buffer(buf)
-			:with_desc("lsp: Rename in project range"),
-		["n|K"] = map_cr("Lspsaga hover_doc"):with_silent():with_buffer(buf):with_desc("lsp: Show doc"),
+			:with_desc("代码：在项目中重命名"),
+		["n|K"] = map_cr("Lspsaga hover_doc"):with_silent():with_buffer(buf):with_desc("代码：查看文档"),
 		["nv|ga"] = map_cr("Lspsaga code_action")
 			:with_silent()
 			:with_buffer(buf)
-			:with_desc("lsp: Code action for cursor"),
+			:with_desc("代码：选择代码操作"),
 		["n|gd"] = map_cr("Lspsaga peek_definition")
 			:with_silent()
 			:with_buffer(buf)
-			:with_desc("lsp: Preview definition"),
-		["n|gD"] = map_cr("Lspsaga goto_definition"):with_silent():with_buffer(buf):with_desc("lsp: Goto definition"),
+			:with_desc("代码：预览定义"),
+		["n|gD"] = map_cr("Lspsaga goto_definition"):with_silent():with_buffer(buf):with_desc("代码：跳转到定义"),
 		["n|gh"] = map_callback(function()
 				helpers.picker("lsp_references")
 			end)
 			:with_noremap()
 			:with_nowait()
 			:with_silent()
-			:with_desc("lsp: show finder"),
+			:with_desc("代码：查找引用"),
 		["n|gm"] = map_callback(function()
 				helpers.picker("lsp_implementations")
 			end)
 			:with_noremap()
 			:with_nowait()
 			:with_silent()
-			:with_desc("lsp: show implementations"),
+			:with_desc("代码：查找实现"),
 		["n|gci"] = map_cr("Lspsaga incoming_calls")
 			:with_silent()
 			:with_buffer(buf)
-			:with_desc("lsp: Show incoming calls"),
+			:with_desc("代码：查看调用此函数的位置"),
 		["n|gco"] = map_cr("Lspsaga outgoing_calls")
 			:with_silent()
 			:with_buffer(buf)
-			:with_desc("lsp: Show outgoing calls"),
+			:with_desc("代码：查看此函数调用的位置"),
 		["n|<leader>lv"] = map_callback(function()
 				helpers.toggle_virtuallines()
 			end)
 			:with_noremap()
 			:with_silent()
-			:with_desc("lsp: Toggle virtual lines"),
+			:with_desc("代码：显示／隐藏诊断虚拟行"),
 		["n|<leader>lh"] = map_callback(function()
 				helpers.toggle_inlayhint()
 			end)
 			:with_noremap()
 			:with_silent()
-			:with_desc("lsp: Toggle inlay hints"),
+			:with_desc("代码：显示／隐藏内联提示"),
 	}
 	bind.nvim_load_mapping(map)
 

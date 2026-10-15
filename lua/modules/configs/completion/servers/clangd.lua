@@ -86,19 +86,19 @@ return function(defaults)
 		on_attach = function(client, bufnr)
 			vim.api.nvim_buf_create_user_command(bufnr, "LspClangdSwitchSourceHeader", function()
 				switch_source_header_splitcmd(bufnr, "edit", client)
-			end, { desc = "Open source/header in a new vsplit" })
+			end, { desc = "代码：在左右分屏中打开源文件／头文件" })
 
 			vim.api.nvim_buf_create_user_command(bufnr, "LspClangdSwitchSourceHeaderVsplit", function()
 				switch_source_header_splitcmd(bufnr, "vsplit", client)
-			end, { desc = "Open source/header in a new vsplit" })
+			end, { desc = "代码：在左右分屏中打开源文件／头文件" })
 
 			vim.api.nvim_buf_create_user_command(bufnr, "LspClangdSwitchSourceHeaderSplit", function()
 				switch_source_header_splitcmd(bufnr, "split", client)
-			end, { desc = "Open source/header in a new split" })
+			end, { desc = "代码：在上下分屏中打开源文件／头文件" })
 
 			vim.api.nvim_buf_create_user_command(bufnr, "LspClangdShowSymbolInfo", function()
 				symbol_info(bufnr, client)
-			end, { desc = "Show symbol info" })
+			end, { desc = "代码：查看符号信息" })
 		end,
 	})
 end

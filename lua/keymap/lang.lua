@@ -7,9 +7,9 @@ local mappings = {
 		["n|<F1>"] = map_cr("RenderMarkdown toggle")
 			:with_noremap()
 			:with_silent()
-			:with_desc("tool: toggle markdown preview within nvim"),
+			:with_desc("工具：切换 Markdown 内嵌预览"),
 		-- Plugin: MarkdownPreview
-		["n|<F12>"] = map_cr("MarkdownPreviewToggle"):with_noremap():with_silent():with_desc("tool: Preview markdown"),
+		["n|<F12>"] = map_cr("MarkdownPreviewToggle"):with_noremap():with_silent():with_desc("工具：打开／关闭 Markdown 浏览器预览"),
 	},
 }
 
